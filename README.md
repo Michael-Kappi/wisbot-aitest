@@ -7,6 +7,7 @@ A proof-of-concept web app demonstrating an AI chatbot that answers user questio
 - Loads documentation files (`.md`, `.txt`) from the `docs/` folder
 - Provides a floating chat panel accessible via a button in the header
 - Uses OpenAI's API to answer questions grounded in your documentation
+- **Multi-language support** — switch between English, Swedish, German, Chinese (Mandarin), and Hindi using the language selector in the header. Both the UI and AI responses adapt to the selected language.
 - Runs entirely locally - no external services beyond the AI API
 
 ## Prerequisites

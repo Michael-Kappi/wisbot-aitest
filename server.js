@@ -88,6 +88,7 @@ app.post('/api/chat', async (req, res) => {
     sv: 'Swedish',
     de: 'German',
     zh: 'Simplified Chinese (Mandarin)',
+    hi: 'Hindi',
   };
   const responseLang = langMap[language] || 'English';
 
