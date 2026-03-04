@@ -34,20 +34,20 @@
   <!-- Main Content -->
   <main class="main-content">
     <div class="welcome-card">
-      <h2>AI Documentation Assistant Demo</h2>
-      <p>
+      <h2 id="welcome-title">AI Documentation Assistant Demo</h2>
+      <p id="welcome-desc">
         This is a proof-of-concept demonstrating how an AI chatbot can help users
         find information from product documentation without manually searching
         through files.
       </p>
-      <h3>How it works</h3>
-      <ul>
+      <h3 id="how-title">How it works</h3>
+      <ul id="how-list">
         <li>Documentation files are loaded from the <code>docs/</code> folder on the server</li>
         <li>The AI assistant uses these documents to answer your questions</li>
         <li>Click the <strong>chat icon</strong> in the top-right corner to start a conversation</li>
       </ul>
-      <h3>Try asking</h3>
-      <ul>
+      <h3 id="try-title">Try asking</h3>
+      <ul id="try-list">
         <li>"How do I select different tyres for the truck and trailer?"</li>
         <li>"What weight limits does the validation engine check?"</li>
         <li>"How do I compare two configurations?"</li>
@@ -63,14 +63,14 @@
           <path d="M12 2a8 8 0 0 1 8 8c0 3.1-1.8 5.8-4.4 7.1L12 22l-3.6-4.9A8 8 0 0 1 12 2z"/>
           <circle cx="12" cy="10" r="1.5"/>
         </svg>
-        WisBot AI Assistant
+        <span id="chat-title-text">WisBot AI Assistant</span>
       </span>
       <button id="chat-close" class="chat-close-btn" title="Close">&times;</button>
     </div>
 
     <div id="chat-messages" class="chat-messages">
-      <div class="message bot-message">
-        <div class="message-content">
+      <div class="message bot-message" id="chat-welcome-msg">
+        <div class="message-content" id="chat-welcome-text">
           Hello! I'm WisBot, your documentation assistant. Ask me anything about the platform.
         </div>
       </div>
