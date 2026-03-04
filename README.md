@@ -18,7 +18,7 @@ A proof-of-concept web app demonstrating an AI chatbot that answers user questio
 
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/Michael-Kappi/wisbot-aitest.git
 cd wisbot-aitest
 
 # 2. Install dependencies

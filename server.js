@@ -18,7 +18,7 @@ function loadDocuments() {
   const docsDir = path.join(__dirname, 'docs');
 
   if (!fs.existsSync(docsDir)) {
-    console.warn('[WisBot] No docs/ folder found. Creating one with a placeholder.');
+    console.log('[WisBot] No docs/ folder found. Creating one with a placeholder.');
     fs.mkdirSync(docsDir, { recursive: true });
     return { text: '', count: 0 };
   }
@@ -28,7 +28,7 @@ function loadDocuments() {
   );
 
   if (files.length === 0) {
-    console.warn('[WisBot] docs/ folder is empty. Add .md or .txt files to provide context.');
+    console.log('[WisBot] docs/ folder is empty. Add .md or .txt files to provide context.');
     return { text: '', count: 0 };
   }
 
@@ -52,7 +52,7 @@ if (process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'your-api-key-h
   openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   console.log('[WisBot] OpenAI client initialized.');
 } else {
-  console.warn('[WisBot] WARNING: OPENAI_API_KEY not configured. Copy .env.example to .env and add your key.');
+  console.log('[WisBot] WARNING: OPENAI_API_KEY not configured. Copy .env.example to .env and add your key.');
 }
 
 // ---------------------------------------------------------------------------
