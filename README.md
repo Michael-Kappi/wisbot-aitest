@@ -32,7 +32,7 @@ cp .env.example .env
 npm start
 ```
 
-Open **http://localhost:3000** in your browser. Click the chat icon in the top-right corner to start asking questions.
+Open **http://localhost:3001** in your browser. Click the chat icon in the top-right corner to start asking questions.
 
 ## Adding Your Own Documents
 
@@ -50,7 +50,7 @@ Edit the `.env` file to customize:
 |----------|---------|-------------|
 | `OPENAI_API_KEY` | *(required)* | Your OpenAI API key |
 | `OPENAI_MODEL` | `gpt-4o-mini` | Model to use (e.g., `gpt-4o`, `gpt-3.5-turbo`) |
-| `PORT` | `3000` | Server port |
+| `PORT` | `3001` | Server port |
 
 ## How It Works
 
@@ -108,19 +108,13 @@ wisbot-aitest/
 | Problem | Solution |
 |---------|----------|
 | "API key not configured" error | Make sure `.env` exists and contains a valid `OPENAI_API_KEY` |
-| Port 3000 already in use | Set `PORT=3001` (or another port) in `.env` |
+| Port already in use | Change `PORT` in `.env` to another value (e.g., `3002`) |
 | Slow responses | Normal for AI API calls. GPT-4o-mini is the fastest option. |
 | "Network error" in chat | Check that the server is running (`npm start`) |
 
-## Next Steps (Future Improvements)
+## Next Steps
 
-For a production version, consider:
-- **Vector RAG**: Use embeddings + vector database for large document sets
-- **Streaming responses**: Show AI responses word-by-word as they generate
-- **Authentication**: Add enterprise SSO/login
-- **Chat history**: Persist conversations in a database
-- **Multiple AI providers**: Support Anthropic Claude, Azure OpenAI, etc.
-- **File upload**: Let users upload documents through the UI
+See [ROADMAP.md](ROADMAP.md) for a detailed breakdown of proposed improvements organized by priority and effort level.
 
 ## License
 
