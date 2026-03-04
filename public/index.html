@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WisBot Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <h1 class="header-title">WisBot Demo</h1>
+    </div>
+    <div class="header-right">
+      <button id="chat-toggle" class="chat-toggle-btn" title="Open AI Assistant">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a8 8 0 0 1 8 8c0 3.1-1.8 5.8-4.4 7.1L12 22l-3.6-4.9A8 8 0 0 1 12 2z"/>
+          <circle cx="12" cy="10" r="1.5"/>
+          <circle cx="8.5" cy="10" r="1.5"/>
+          <circle cx="15.5" cy="10" r="1.5"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="welcome-card">
+      <h2>AI Documentation Assistant Demo</h2>
+      <p>
+        This is a proof-of-concept demonstrating how an AI chatbot can help users
+        find information from product documentation without manually searching
+        through files.
+      </p>
+      <h3>How it works</h3>
+      <ul>
+        <li>Documentation files are loaded from the <code>docs/</code> folder on the server</li>
+        <li>The AI assistant uses these documents to answer your questions</li>
+        <li>Click the <strong>chat icon</strong> in the top-right corner to start a conversation</li>
+      </ul>
+      <h3>Try asking</h3>
+      <ul>
+        <li>"How do I select different tyres for the truck and trailer?"</li>
+        <li>"What weight limits does the validation engine check?"</li>
+        <li>"How do I compare two configurations?"</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Chat Panel -->
+  <div id="chat-panel" class="chat-panel hidden">
+    <div class="chat-header">
+      <span class="chat-header-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a8 8 0 0 1 8 8c0 3.1-1.8 5.8-4.4 7.1L12 22l-3.6-4.9A8 8 0 0 1 12 2z"/>
+          <circle cx="12" cy="10" r="1.5"/>
+        </svg>
+        WisBot AI Assistant
+      </span>
+      <button id="chat-close" class="chat-close-btn" title="Close">&times;</button>
+    </div>
+
+    <div id="chat-messages" class="chat-messages">
+      <div class="message bot-message">
+        <div class="message-content">
+          Hello! I'm WisBot, your documentation assistant. Ask me anything about the platform.
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" class="chat-input" placeholder="Ask me anything!" autocomplete="off" />
+      <button id="chat-send" class="chat-send-btn" title="Send">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="chat.js"></script>
+</body>
+</html>
