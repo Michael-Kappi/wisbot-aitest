@@ -76,18 +76,30 @@ app.post('/api/chat', async (req, res) => {
     });
   }
 
-  const { messages } = req.body;
+  const { messages, language } = req.body;
 
   if (!messages || !Array.isArray(messages) || messages.length === 0) {
     return res.status(400).json({ error: 'messages array is required.' });
   }
 
+  // Language mapping
+  const langMap = {
+    en: 'English',
+    sv: 'Swedish',
+    de: 'German',
+    zh: 'Simplified Chinese (Mandarin)',
+  };
+  const responseLang = langMap[language] || 'English';
+
   // Build system message with document context
-  let systemContent = 'You are WisBot, a helpful documentation assistant. ';
+  let systemContent = 'You are WisBot, a helpful documentation assistant. ' +
+    `Always respond in ${responseLang}. `;
 
   if (docs.text) {
     systemContent +=
       'Answer questions based on the documentation provided below. ' +
+      'The documentation may be in a different language than the user writes in - ' +
+      `always translate your answer into ${responseLang}. ` +
       'If the answer is not found in the documentation, clearly state that. ' +
       'Be concise and helpful.\n\n' +
       docs.text;

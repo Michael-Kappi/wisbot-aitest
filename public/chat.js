@@ -8,6 +8,7 @@ const closeBtn = document.getElementById('chat-close');
 const messagesEl = document.getElementById('chat-messages');
 const inputEl = document.getElementById('chat-input');
 const sendBtn = document.getElementById('chat-send');
+const langSelect = document.getElementById('lang-select');
 
 // Conversation history sent to the backend with each request
 const conversationHistory = [];
@@ -58,7 +59,7 @@ async function sendMessage() {
     const res = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: conversationHistory }),
+      body: JSON.stringify({ messages: conversationHistory, language: langSelect.value }),
     });
 
     const data = await res.json();
