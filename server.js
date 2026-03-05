@@ -49,8 +49,13 @@ const docs = loadDocuments();
 let openai = null;
 
 if (process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'your-api-key-here') {
-  openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-  console.log('[WisBot] OpenAI client initialized.');
+  const clientOpts = { apiKey: process.env.OPENAI_API_KEY };
+  if (process.env.OPENAI_BASE_URL) {
+    clientOpts.baseURL = process.env.OPENAI_BASE_URL;
+  }
+  openai = new OpenAI(clientOpts);
+  const endpoint = process.env.OPENAI_BASE_URL || 'https://api.openai.com/v1';
+  console.log(`[WisBot] API client initialized (endpoint: ${endpoint})`);
 } else {
   console.log('[WisBot] WARNING: OPENAI_API_KEY not configured. Copy .env.example to .env and add your key.');
 }
