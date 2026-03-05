@@ -51,6 +51,8 @@ Edit the `.env` file to customize:
 |----------|---------|-------------|
 | `OPENAI_API_KEY` | *(required)* | Your OpenAI API key or enterprise gateway key |
 | `OPENAI_BASE_URL` | `https://api.openai.com/v1` | Custom endpoint for enterprise LLM gateways |
+| `OPENAI_API_HEADER` | *(none)* | Custom header name for the API key (e.g., `api-key` for enterprise gateways) |
+| `OPENAI_API_VERSION` | *(none)* | API version parameter (required by some gateways, e.g., `2024-02-01`) |
 | `OPENAI_MODEL` | `gpt-4o-mini` | Model to use (e.g., `gpt-4o`, `claude-3`, or any model your gateway supports) |
 | `PORT` | `3001` | Server port |
 

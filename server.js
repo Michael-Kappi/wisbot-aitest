@@ -53,9 +53,19 @@ if (process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'your-api-key-h
   if (process.env.OPENAI_BASE_URL) {
     clientOpts.baseURL = process.env.OPENAI_BASE_URL;
   }
+  // Enterprise gateways often require the API key in a custom header
+  // (e.g. "api-key") instead of the default "Authorization: Bearer" header.
+  if (process.env.OPENAI_API_HEADER) {
+    clientOpts.defaultHeaders = { [process.env.OPENAI_API_HEADER]: process.env.OPENAI_API_KEY };
+  }
+  // Some gateways (e.g. Azure OpenAI) require an api-version query parameter.
+  if (process.env.OPENAI_API_VERSION) {
+    clientOpts.defaultQuery = { 'api-version': process.env.OPENAI_API_VERSION };
+  }
   openai = new OpenAI(clientOpts);
   const endpoint = process.env.OPENAI_BASE_URL || 'https://api.openai.com/v1';
-  console.log(`[WisBot] API client initialized (endpoint: ${endpoint})`);
+  const authMethod = process.env.OPENAI_API_HEADER || 'Bearer token';
+  console.log(`[WisBot] API client initialized (endpoint: ${endpoint}, auth: ${authMethod})`);
 } else {
   console.log('[WisBot] WARNING: OPENAI_API_KEY not configured. Copy .env.example to .env and add your key.');
 }
